@@ -1,0 +1,14 @@
+<div uib-accordion-group class="panel-default album-gallery" heading="{{album.title}}" >
+    <div class="row" ng-show="!albumCtrl.loading">
+        <div ng-repeat="picture in albumCtrl.pictures" class="col-xs-6 col-md-3" >
+            <a href="#" ng-click="$event.preventDefault(); albumCtrl.showPicture(picture)" class="thumbnail">
+                <img ng-src="{{picture.thumbnailUrl}}" alt="...">
+            </a>
+        </div>
+    </div>
+    <div class="row" ng-show="albumCtrl.loading">
+        <div class="col-md-12">
+            <h4><i class="fa fa-spinner fa-spin"></i> Loading...</h4>
+        </div>
+    </div>
+</div>

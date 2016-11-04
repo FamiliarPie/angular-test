@@ -1,0 +1,75 @@
+<div class="container"> 
+    <h1><i class="fa fa-user"></i> User Details</h1>
+    {{userCtrl.user}}
+    <form class="form-horizontal">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4">ID:</label>
+                    <div class="col-md-8">
+                        <span class="form-control" type="text" disabled="disabled">{{userCtrl.user.id}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4">Name:</label>
+                    <div class="col-md-8">
+                        <span class="form-control" type="text" disabled="disabled">{{userCtrl.user.name}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4">Username:</label>
+                    <div class="col-md-8">
+                        <span class="form-control" type="text" disabled="disabled">{{userCtrl.user.username}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4">Email:</label>
+                    <div class="col-md-8">
+                        <span class="form-control" type="text" disabled="disabled">{{userCtrl.user.email}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4">Address:</label>
+                    <div class="col-md-8">
+                        <span class="form-control" type="text" disabled="disabled">{{userCtrl.user.address | address}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4">Phone:</label>
+                    <div class="col-md-8">
+                        <span class="form-control" type="text" disabled="disabled">{{userCtrl.user.phone}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4">Website:</label>
+                    <div class="col-md-8">
+                        <span class="form-control" type="text" disabled="disabled">{{userCtrl.user.website}}</span>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4">Company:</label>
+                    <div class="col-md-8">
+                        <span class="form-control" type="text" disabled="disabled">{{userCtrl.user.email}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-default col-md-3 col-md-offset-9" type="submit" ng-click="userCtrl.showAlbums()">
+                        <i class="fa fa-picture-o"></i> Show albums <i ng-show="userCtrl.loading" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="row" ng-show="userCtrl.albums.length > 0">
+       <div class="col-md-12">
+            <h3>Albums</h3>
+            <uib-accordion close-others="true">
+                <album-gallery ng-repeat="album in userCtrl.albums"></album-gallery>
+            </uib-accordion>
+        </div>
+    </div>
+</div>

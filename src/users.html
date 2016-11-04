@@ -1,0 +1,30 @@
+<div class="container"> 
+    <h1><i class="fa fa-users"></i> Users</h1>
+    <br />
+    <input class="form-control" type="text" ng-model="userCtrl.query" placeholder="Search..." />
+    <table class="table table-striped">
+        <thead>
+            <th ng-click="userCtrl.sort('name')">
+                Name
+                <i ng-show="userCtrl.sortTerm === 'name'" class="fa fa-sort-asc" aria-hidden="true"></i>
+                <i ng-show="userCtrl.sortTerm === '-name'"class="fa fa-sort-desc" aria-hidden="true"></i>
+            </th>
+            <th ng-click="userCtrl.sort('email')">
+                Email Address
+                <i ng-show="userCtrl.sortTerm === 'email'" class="fa fa-sort-asc" aria-hidden="true"></i>
+                <i ng-show="userCtrl.sortTerm === '-email'" class="fa fa-sort-desc" aria-hidden="true"></i></th>
+            <th ng-click="userCtrl.sort('company.name')">
+                Company
+                <i ng-show="userCtrl.sortTerm === 'company.name'" class="fa fa-sort-asc" aria-hidden="true"></i>
+                <i ng-show="userCtrl.sortTerm === '-company.name'" class="fa fa-sort-desc" aria-hidden="true"></i>
+            </th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in userCtrl.users | filter: userCtrl.search | orderBy:userCtrl.sortTerm" ng-click="userCtrl.showUser(user)">
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.company.name}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
