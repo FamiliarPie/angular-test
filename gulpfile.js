@@ -21,13 +21,16 @@ gulp.task('copy', function() {
         .pipe(gulp.dest('./build/dist'));
 
     gulp.src('node_modules/angular-ui-bootstrap/template/**/*')
-        .pipe(gulp.dest('./build/dist/uib/template'))
+        .pipe(gulp.dest('./build/dist/uib/template'));
 
     gulp.src('src/api/*')
         .pipe(gulp.dest('./build/dist/api'));
 
     gulp.src('node_modules/font-awesome/fonts/*')
-        .pipe(gulp.dest('./build/dist/fonts'))
+        .pipe(gulp.dest('./build/dist/fonts'));
+
+    gulp.src('node_modules/bootstrap/dist/css/bootstrap.css.map')
+        .pipe(gulp.dest('./build/dist/css/'))
 
     gulp.src([
             'node_modules/bootstrap/dist/css/bootstrap.css',

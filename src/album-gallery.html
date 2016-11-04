@@ -1,4 +1,4 @@
-<div uib-accordion-group class="panel-default album-gallery" heading="{{album.title}}" >
+<div uib-accordion-group class="panel-default album-gallery" heading="{{album.title}}" ng-click="albumCtrl.loadPictures()">
     <div class="row" ng-show="!albumCtrl.loading">
         <div ng-repeat="picture in albumCtrl.pictures" class="col-xs-6 col-md-3" >
             <a href="#" ng-click="$event.preventDefault(); albumCtrl.showPicture(picture)" class="thumbnail">
